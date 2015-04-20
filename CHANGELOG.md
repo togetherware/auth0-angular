@@ -1,5 +1,8 @@
 # 4.0.X
 
+## 4.0.2
+* Fixed bug with SSO
+
 ## 4.0.1
 * Fixed minification problem with `auth0-angular` and `Lock`
 
