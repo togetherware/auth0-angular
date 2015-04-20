@@ -294,6 +294,7 @@
               if (ssoData.sso) {
                 auth.signin({
                   popup: false,
+                  callbackOnLocationHash: true,
                   connection: ssoData.lastUsedConnection.name
                 }, null, null, 'Auth0');
               }

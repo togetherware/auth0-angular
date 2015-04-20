@@ -1,6 +1,6 @@
 /**
  * Angular SDK to use with Auth0
- * @version v4.0.1 - 2015-01-06
+ * @version v4.0.1 - 2015-04-20
  * @link https://auth0.com
  * @author Martin Gontovnikas
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -273,6 +273,7 @@
                   if (ssoData.sso) {
                     auth.signin({
                       popup: false,
+                      callbackOnLocationHash: true,
                       connection: ssoData.lastUsedConnection.name
                     }, null, null, 'Auth0');
                   }
