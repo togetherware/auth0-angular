@@ -1,6 +1,6 @@
 /**
  * Angular SDK to use with Auth0
- * @version v4.0.3 - 2015-04-28
+ * @version v4.0.4 - 2015-04-28
  * @link https://auth0.com
  * @author Martin Gontovnikas
  * @license MIT License, http://www.opensource.org/licenses/MIT

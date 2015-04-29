@@ -1,7 +1,7 @@
 
 # 4.0.X
 
-## 4.0.3
+## 4.0.3 & 4.0.4
 * Added loginAfterSignup support
 
 ## 4.0.2
