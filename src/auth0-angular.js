@@ -396,7 +396,7 @@
 
         var signinMethod = getInnerLibraryMethod('signin', libName);
         var successFn = !successCallback ? null : function(profile, idToken, accessToken, state, refreshToken) {
-          if (!angular.isUndefined(options.loginAfterSignup) && !options.loginAfterSignup) {
+          if (!idToken && !angular.isUndefined(options.loginAfterSignup) && !options.loginAfterSignup) {
             successCallback();
           } else {
             onSigninOk(idToken, accessToken, state, refreshToken, profile).then(function(profile) {
