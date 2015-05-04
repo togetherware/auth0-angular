@@ -190,8 +190,6 @@ module.config(function(authProvider) {
 auth.signin();
 ````
 
-You can read **a more extensive tutorial on how to use auth0-angular with [popup mode here](docs/widget-popup.md) and with [redirect mode here](docs/widget-redirect.md)**.
-
 The rest of the **options that can be sent can be [checked here](https://github.com/auth0/lock/wiki/Auth0Lock-customization)**.
 
 #### auth.signup(options[, successCallback, errorCallback])
