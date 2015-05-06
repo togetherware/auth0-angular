@@ -171,7 +171,11 @@ auth.signin({
 ````js
 // app.js
 module.config(function(authProvider) {
-  authProvider.on('loginSuccess', function($location) {
+  authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {
+    profilePromise.then(function(profile) {
+      store.set('profile', profile);
+      store.set('token', idToken);
+    });
     $location.path('/');
   });
 
