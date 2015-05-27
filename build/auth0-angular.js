@@ -116,6 +116,7 @@
             signin: 'login',
             signup: 'signup',
             reset: 'changePassword',
+            validateUser: 'validateUser',
             library: function () {
               return config.auth0js;
             },
@@ -367,6 +368,15 @@
               };
             var signinCall = authUtils.callbackify(signinMethod, successFn, errorFn, innerAuth0libraryConfiguration[libName || config.lib].library());
             signinCall(options);
+          };
+          auth.validateUser = function(options, successCallback, errorCallback) {
+            options = options || {};
+
+            options = getInnerLibraryConfigField('parseOptions')(options);
+            var auth0lib = config.auth0lib;
+            var validateUserCall = authUtils.callbackify(getInnerLibraryMethod('validateUser'), successCallback, errorCallback, auth0lib);
+
+            validateUserCall(options);
           };
           auth.signup = function (options, successCallback, errorCallback) {
             options = options || {};
