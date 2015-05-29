@@ -1,7 +1,11 @@
 <div>
   <br />
-  <span>Welcome {{auth.profile.name}}!</span>
-  <div style="margin-top: 10px">User Profile</div>
-  <pre><code>{{auth.profile | json}}</code></pre>
+  <div ng-if="!auth.isAuthenticated">
+    Please log in.
+  </div>
+  <div ng-if="auth.isAuthenticated">
+    <span>Welcome {{auth.profile.name}}!</span>
+    <div style="margin-top: 10px">User Profile</div>
+    <pre><code>{{auth.profile | json}}</code></pre>
+  </div>
 </div>
-
