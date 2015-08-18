@@ -1,10 +1,5 @@
-var Boom = require('boom');
-var Express = require('express');
-var Webtask = require('webtask-tools');
+var Request = require('request');
 
-
-var app = Express();
-var router = Express.Router();
 var quotes = [
     "Chuck Norris doesn't call the wrong number. You answer the wrong phone.",
     "Chuck Norris has already been to Mars; that's why there are no signs of life.",
@@ -50,67 +45,31 @@ var quotes = [
     "Chuck Norris can punch a cyclops between the eyes.",
     "Chuck Norris doesn't mow his lawn, he stands on the porch and dares it to grow",
     "Chuck Norris put out a forest fire. using only gasoline",
-    "Chuck Norris CAN believe it's not butter.",
-    "Custom t-shirts provided by Spreadshirt"
+    "Chuck Norris CAN believe it's not butter."
 ];
 
-app.use(cors);
-
-app.use(require('body-parser').json());
-
-app.use(router);
-
-app.use(function (req, res, next) {
-    next(Boom.notFound());
-});
-
-app.use(function(err, req, res, next) {
-    console.log(err.message);
-
-    if (!err.isBoom) err = Boom.wrap(err);
-
-    res
-        .set(err.output.headers)
-        .status(err.output.statusCode)
-        .json(err.output.payload);
-});
-
-router.get('/public/quote', function (req, res) {
-    console.log('ctx', req.webtaskContext);
-    
+module.exports = function (context, cb) {
     var idx = Math.floor(Math.random() * quotes.length);
     var quote = quotes[idx].replace('Chuck Norris', 'Nuck Chorris');
+    var user = context.user;
     
-    res.json({
-        quote: quote,
-    });
-});
+    if (!user.email) return cb(new Error('User account missing an email address.'));
+    
+    Request.post({
+        url: 'https://api.sendgrid.com/api/mail.send.json',
+        headers: {
+            'Authorization': 'Bearer ' + context.data.SENDGRID_KEY,
+        },
+        form: {
+            'to': user.email,
+            'from': 'geoff@auth0.com',
+            'subject': "Here's your daily dose of Chuck, courtesy of Auth0 and webtask.io",
+            'text': quote,
+        }
+    }, cb);
 
-router.get('/protected/quote', ensureAuthenticated, function (req, res) {
-    var idx = Math.floor(Math.random() * quotes.length);
-    var quote = quotes[idx];
-    
-    res.json({
-        quote: quote,
-    });
-});
+};
 
-function ensureAuthenticated (req, res, next) {
-    console.log('ctx', req.webtaskContext);
+function getUser (userId) {
     
-    if (!req.webtaskContext.user) return next(Boom.badRequest());
-    
-    next();
-}
-
-module.exports = Webtask.fromExpress(app);
-
-function cors (req, res, next) {
-    if (req.method.toUpperCase() !== 'HEAD') next();
-    
-    res.set('Access-Control-Allow-Origin', '*');
-    res.set('Access-Control-Request-Headers', 'Authorization');
-    
-    res.statusCode = 204;
-    res.end();
 }

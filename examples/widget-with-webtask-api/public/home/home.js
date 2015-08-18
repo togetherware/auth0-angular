@@ -11,7 +11,7 @@ angular.module( 'sample.home', [
       url: 'https://wt-dev2.it.auth0.com:8721/api/run/filearts/api/' + type + '/quote?webtask_no_cache=1',
       method: 'GET'
     }).then(function(res) {
-      alert(res.data.quote);
+      alert('Sending some Chuck your way.');
     }, function(response) {
       if (response.status == 0) {
         alert("Please download the API seed so that you can call it.");

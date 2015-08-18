@@ -4,7 +4,11 @@ angular.module( 'sample.login', [
 .controller( 'LoginCtrl', function HomeController( $scope, auth, $location, store ) {
 
   $scope.login = function() {
-    auth.signin({}, function(profile, token) {
+    auth.signin({
+      authParams: {
+        scope: 'openid email',
+      }
+    }, function(profile, token) {
       store.set('profile', profile);
       store.set('token', token);
       $location.path("/");
