@@ -125,7 +125,7 @@ Does not reload the page.
 
 auth0-angular depends on either `auth0.js` or `auth0-lock.js`.
 
-If you want to use Auth0's [beautiful Lock UI](https://auth0.com/lock), you need to include `auth0-lock.js`. This lets you configure Title and Icons, but the UI is taken care for you. For all the customization properties, please check out [this link](https://github.com/auth0/lock/wiki/Auth0Lock-customization)
+If you want to use Auth0's [beautiful Lock UI](https://auth0.com/lock), you need to include `auth0-lock.js`. This lets you configure Title and Icons, but the UI is taken care for you. For all the customization properties, please check out [this link](https://auth0.com/docs/libraries/lock/customization)
 
 Otherwise, if you'll use a custom UI, you need to include `auth0.js`.
 
