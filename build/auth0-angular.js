@@ -1,6 +1,6 @@
 /**
  * Angular SDK to use with Auth0
- * @version v4.0.4 - 2015-04-28
+ * @version v4.0.5 - 2015-09-08
  * @link https://auth0.com
  * @author Martin Gontovnikas
  * @license MIT License, http://www.opensource.org/licenses/MIT
@@ -369,15 +369,6 @@
             var signinCall = authUtils.callbackify(signinMethod, successFn, errorFn, innerAuth0libraryConfiguration[libName || config.lib].library());
             signinCall(options);
           };
-          auth.validateUser = function(options, successCallback, errorCallback) {
-            options = options || {};
-
-            options = getInnerLibraryConfigField('parseOptions')(options);
-            var auth0lib = config.auth0lib;
-            var validateUserCall = authUtils.callbackify(getInnerLibraryMethod('validateUser'), successCallback, errorCallback, auth0lib);
-
-            validateUserCall(options);
-          };
           auth.signup = function (options, successCallback, errorCallback) {
             options = options || {};
             checkHandlers(options, successCallback, errorCallback);
@@ -409,6 +400,13 @@
             var auth0lib = config.auth0lib;
             var resetCall = authUtils.callbackify(getInnerLibraryMethod('reset'), successCallback, errorCallback, auth0lib);
             resetCall(options);
+          };
+          auth.validateUser = function (options, successCallback, errorCallback) {
+            options = options || {};
+            options = getInnerLibraryConfigField('parseOptions')(options);
+            var auth0lib = config.auth0lib;
+            var validateUserCall = authUtils.callbackify(getInnerLibraryMethod('validateUser'), successCallback, errorCallback, auth0lib);
+            validateUserCall(options);
           };
           auth.signout = function () {
             auth.isAuthenticated = false;
