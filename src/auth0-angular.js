@@ -359,7 +359,7 @@
       auth.init = angular.bind(config, config.init);
 
       auth.getToken = function(options) {
-        options = options || { scope: 'passthrough' };
+        options = options || { scope: 'openid' };
 
         if (!options.id_token && !options.refresh_token) {
           options.id_token = auth.idToken;
