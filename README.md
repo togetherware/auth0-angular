@@ -64,7 +64,7 @@ angular.module('myCoolApp').controller('LoginCtrl', function(auth) {
   $scope.signin = function() {
     auth.signin({
       authParams: {
-        scope: 'openid first_name email' // Specify the scopes you want to retrieve
+        scope: 'openid name email' // Specify the scopes you want to retrieve
       }
     }, function(profile, idToken, accessToken, state, refreshToken) {
       $location.path('/user-info')
@@ -93,7 +93,7 @@ angular.module('myCoolApp').controller('UserInfoCtrl', function(auth) {
 ```
 ```html
 <!-- userInfo.html -->
-<span>{{profile.first_name}} {{profile.email}}</span>
+<span>{{profile.name}} {{profile.email}}</span>
 ```
 
 ### Keeping the user logged in, saving the token and using a refresh token.
