@@ -129,7 +129,7 @@ If you want to use Auth0's [beautiful Lock UI](https://auth0.com/lock), you need
 
 Otherwise, if you'll use a custom UI, you need to include `auth0.js`.
 
-**It's important to note that this scripts must be included before auth0-angular**.
+**It's important to note that these scripts must be included before auth0-angular**.
 
 If you're using `bower` or `npm`, these scripts are set as dependencies of auth0-angular so that you choose the best for you. Otherwise, you can include them from the CDN:
 
