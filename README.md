@@ -137,7 +137,7 @@ If you're using `bower` or `npm`, these scripts are set as dependencies of auth0
 <!-- Either this -->
 <script type="text/javascript" src="//cdn.auth0.com/js/auth0-lock-7.js"></script>
 <!-- or -->
-<script type="text/javascript" src="//cdn.auth0.com/w2/auth0-6.js"></script>
+<script type="text/javascript" src="//cdn.auth0.com/w2/auth0-6.7.js"></script>
 ```
 
 ### SDK API
