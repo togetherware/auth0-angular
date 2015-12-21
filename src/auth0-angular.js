@@ -293,11 +293,14 @@
           if (config.sso) {
             config.auth0js.getSSOData(authUtils.applied(function(err, ssoData) {
               if (ssoData.sso) {
-                auth.signin({
+                var loginOptions = {
                   popup: false,
                   callbackOnLocationHash: true,
                   connection: ssoData.lastUsedConnection.name
-                }, null, null, 'Auth0');
+                };
+                callHandler('ssoLogin', { loginOptions: loginOptions });
+
+                auth.signin(loginOptions, null, null, 'Auth0');
               }
             }));
           }
