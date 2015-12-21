@@ -372,6 +372,7 @@ The following events can be handled:
 * **loginSuccess**: The user has successfully logged in . In the handler, you can inject any service you want besides the `profileProfile` and `idToken` from the user.
 * **loginFailure**: There was an error trying to authenticate the user. In the handler, you can inject any service you want besides the `error` which was thrown.
 * **logout**: The user has successfully logged out.
+* **ssoLogin**: An SSO login is happening.
 * **forbidden**: An unauthorized request was made to an API, which returned an HTTP 401 response. This can mean that the user attempted to access a restricted resource, or that their token has expired.
 
 When using **redirect mode, it's mandatory to handle login events in this way**.
@@ -427,7 +428,7 @@ If you have found a bug or have a feature request, please report it in as an iss
 
 Please do not report security vulnerabilities in public. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
 
-## Contributing 
+## Contributing
  [Read here how to run auth0-angular tests](docs/testing.md)
 
 
