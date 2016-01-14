@@ -497,6 +497,10 @@
         });
       };
 
+      auth.hide = function(callback) {
+        config.auth0lib.hide(callback);
+      };
+
       return auth;
     };
   });
