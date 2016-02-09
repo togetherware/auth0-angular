@@ -422,15 +422,8 @@ This is the list of all of the available tutorials & samples.
 
 Check [the CHANGELOG file](CHANGELOG.md) to see the changes from version to version.
 
-## Reporting issues
-
-If you have found a bug or have a feature request, please report it in as an issue in this repository.
-
-Please do not report security vulnerabilities in public. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
-
 ## Contributing
  [Read here how to run auth0-angular tests](docs/testing.md)
-
 
 ## What is Auth0?
 
@@ -447,3 +440,15 @@ Auth0 helps you to:
 
 1. Go to [Auth0](https://auth0.com) and click Sign Up.
 2. Use Google, GitHub or Microsoft Account to login.
+
+## Issue Reporting
+
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+
+## Author
+
+[Auth0](auth0.com)
+
+## License
+
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
